@@ -6,6 +6,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'marek-prochazka.cz',
+	site: 'https://www.marek-prochazka.cz',
 	integrations: [mdx(), sitemap()],
 });
