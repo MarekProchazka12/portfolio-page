@@ -7,8 +7,9 @@
 :root {
 	--color-bg: #2e2f2e;
    --color-primary: #f0faf8;       
-   --color-text:"black"
-   
+   --color-text:"black";
+   --color-secondary: #9ed5e6;
+	 --color-cover: #013747
   }
 @font-face {
 	font-family: "Atkinson";
@@ -50,7 +51,7 @@ body {
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: var(--color-text);
+	color: var(--color-primary);
 	font-size: 20px;
 	line-height: 1.7;
 }
@@ -67,7 +68,7 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: var(--color-text);
+	color: var(--color-primary);
 	line-height: 1.2;
 }
 h1 {
@@ -116,9 +117,13 @@ img {
 	height: auto;
 	border-radius: 8px;
 }
+.first-section{
+	justify-content: center;
+	display: flex;
+}
 code {
 	padding: 2px 5px;
-	background-color: var(--color-primary);
+	background-color: var(--color-cover);
 	border-radius: 2px;
 }
 pre {
@@ -136,7 +141,6 @@ blockquote {
 }
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
 }
 @media (max-width: 720px) {
 	body {
