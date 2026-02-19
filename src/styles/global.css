@@ -5,11 +5,11 @@
  */
 
 :root {
-   --color-bg: #000000;       /* Black (60%) */
-    --color-primary: #223867; /* Prussian Blue (30%) */
-    --color-secondary: #FCA311;   /* Orange (10% - Akcent) */
-    --color-text: #E5E5E5;
-}
+	--color-bg: #2e2f2e;
+   --color-primary: #f0faf8;       
+   --color-text:"black"
+   
+  }
 @font-face {
 	font-family: "Atkinson";
 	src: url("/fonts/atkinson-regular.woff") format("woff");
