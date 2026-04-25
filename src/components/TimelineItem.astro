@@ -1,0 +1,179 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  role?: string;
+  description: string;
+  align: 'left' | 'right';
+}
+
+const { title, date, role, description, align } = Astro.props;
+
+const fileName = title
+  .normalize('NFD')                  
+  .replace(/[\u0300-\u036f]/g, '')  
+  .toLowerCase()                     
+  .replace(/[^a-z0-9]+/g, '-')        
+  .replace(/^-+|-+$/g, '')            
+  + '.py';
+---
+
+<div class={`timeline-item ${align}`}>
+  <div class="timeline-dot"></div>
+
+  <div class="timeline-card">
+    <div class="card-header">
+      <div class="mac-buttons">
+        <span class="close"></span>
+        <span class="minimize"></span>
+        <span class="maximize"></span>
+      </div>
+      <span class="file-name">{fileName}</span>
+    </div>
+
+    <div class="card-body">
+      <span class="date">// {date}</span>
+      <h3>{title}</h3>
+      {role && <span class="role"><span class="property">role</span> = <span class="string">"{role}"</span></span>}
+      <p>{description}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .timeline-item {
+    position: relative;
+    width: 80%;
+    padding: 0 40px;
+    margin-bottom: 4rem;
+    box-sizing: border-box;
+  }
+
+  .timeline-item.left {
+    left: 50%;
+  }
+  .timeline-item.right {
+    left: -30%;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-primary, #FCA311);
+    border-radius: 50%;
+    z-index: 2;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 4px var(--color-bg, #000000); 
+  }
+
+  .timeline-item.left .timeline-dot {
+    left: -8px; 
+  }
+  .timeline-item.right .timeline-dot {
+    right: -8px; 
+  }
+
+  .timeline-card {
+    background-color: var(--color-secondary, #14213D);
+    border-radius: 12px;
+    overflow: hidden; 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .timeline-item:hover .timeline-card {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(2, 10, 99, 0.1);
+    border-color: #FFFFFF; 
+  }
+
+  .timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+    box-shadow: 0 0 15px var(--color-primary, #FFFFFF), 0 0 0 4px var(--color-primary, #000000);
+  }
+
+  .card-header {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .mac-buttons {
+    display: flex;
+    gap: 6px;
+    margin-right: 15px;
+  }
+
+  .mac-buttons span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .close { background-color: #ff5f56; }
+  .minimize { background-color: #ffbd2e; }
+  .maximize { background-color: #27c93f; }
+
+  .file-name {
+    color: rgba(229, 229, 229, 0.5); 
+    font-size: 0.8rem;
+    font-family: monospace;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .date {
+    color: rgba(229, 229, 229, 0.4);
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 8px;
+    font-family: monospace;
+  }
+
+  h3 {
+    margin: 0 0 10px 0;
+    color: var(--color-text, #E5E5E5);
+    font-size: 1.4rem;
+  }
+
+  .role {
+    display: block;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: var(--color-text, #E5E5E5);
+  }
+
+  .property { color: #c678dd; } 
+  .string { color: #98c379; } 
+
+  p {
+    margin: 0;
+    color: rgba(229, 229, 229, 0.8);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .timeline-item {
+      width: 100%;
+      padding-left: 45px;
+      padding-right: 0;
+    }
+    .timeline-item.left, 
+    .timeline-item.right {
+      left: 0;
+    }
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+      left: 0;
+      right: auto;
+    }
+  }
+</style>

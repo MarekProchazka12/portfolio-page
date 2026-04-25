@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Page.astro';
+import TimelineItem from '../components/TimelineItem.astro';
+
+const experiences = [
+  {
+    title: "ZŠ Vratislavice",
+    date: "9/2011 - 6/2020",
+    role: "Student",
+    description: "The beginning."
+  },
+  {
+    title: "Střední průmyslová škola - IT",
+    date: "9/2020 - 5/2024",
+    role: "Student",
+    description: "First encounter with multiple programming languages, networking, databases and many other things from the world of informational technologies."
+  },
+  {
+    title: "Entry-CZ",
+    date: "5/2023",
+    role: "Intern",
+    description: "2 week long mandatory internship in development department in a company focused on smart systems in cars."
+  },
+  {
+    title: "Nextraining",
+    date: "6/2024 - 9/2024",
+    role: "Intern",
+    description: "ERASMUS internship in Valencia, Spain. Nextraining is a company that provides IT focused certifications. My job was coming up with autonomous solutions for the company."
+  },
+  {
+    title: "Technická univerzita v Liberci - IT/IS",
+    date: "9/2024 - datetime.now()",
+    role: "Student",
+    description: "Continuing to enhance my skills in IT with addition of inteligent systems."
+  },
+  {
+    title: "ONLINE HOLDING s.r.o.",
+    date: "12/2024 - datetime.now()",
+    role: "IT Trainee / AI Projects Trainee",
+    description: "Current employment, where I manage company hardware and contribute to numerous AI projects."
+  }
+];
+---
+
+<Layout 
+  description='Ahoj'
+>
+  <section class="path-container">
+    
+    <header class="path-header">
+      <h1><span class="keyword">def</span> <span class="function">Path</span>(<span class="parameter">self</span>): </h1>
+      
+    </header>
+
+    <div class="timeline-wrapper">
+      <div class="timeline-center-line"></div>
+
+      {experiences.map((exp, index) => (
+        <TimelineItem 
+          title={exp.title}
+          date={exp.date}
+          role={exp.role}
+          description={exp.description}
+          align={index % 2 === 0 ? 'left' : 'right'} 
+        />
+      ))}
+    </div>
+
+    
+
+  </section>
+</Layout>
+
+<style>
+  .path-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .path-header {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .path-footer {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--color-text, #E5E5E5);
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace; 
+  }
+
+  .keyword { color: #c678dd; } 
+  .function { color: #61afef; } 
+  .parameter { color: #aa1cc3; } 
+  
+  .comment {
+    color: rgba(229, 229, 229, 0.4);
+    font-family: monospace;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+
+  .timeline-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-center-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    transform: translateX(-50%);
+    background-color: #FFFFFF;
+    background-size: 2px 20px;
+    background-repeat: repeat-y;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .path-header, .path-footer {
+      text-align: left;
+    }
+    
+    .timeline-center-line {
+      left: 8px; 
+      transform: none;
+    }
+  }
+</style>

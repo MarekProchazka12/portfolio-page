@@ -1,68 +1,36 @@
-<html lang="cs">
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { Image } from 'astro:assets';
+import profile from '../assets/other/IMG_8317.jpg';
+---
+
+<!doctype html>
+<html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Work in Progress</title>
+		<BaseHead title={"Welcome!"} description={"Welcome!"} />
 	</head>
 	<body>
+		<Header />
 		<main>
-			<img src="/construction.jpg" alt="Work in progress" />
-			<h1>Work in Progress</h1>
-			<img class = "small-image" src="/sillySeal.jpg" alt="Silly Seal" />
+			<div class="first-section">
+				<h1>Hello World!</h1>
+				
+			</div>
+			<p>
+				Welcome to my dev portfolio! My name is Marek Procházka and I'm so glad you found this page. You'll find more <a href="./about">about me</a> when you click on one of the links in the NavBar.
+			</p>
 
-		</main>
+			<Image src={profile} alt="It's me." width={400} height={500} class={"profile"}/>		</main>
+		<Footer />
 	</body>
 </html>
 
-<style is:global>
+<style>
+  .profile{
+    display: block; 
+    margin: 0 auto;
 
-	@font-face {
-  font-family: 'JBMono';
-  /* Cesta začíná lomítkem, protože soubor je ve složce public */
-  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; /* Důležité: text se zobrazí hned i s náhradním fontem, než se načte tvůj */
-}
-
-@font-face {
-  font-family: 'JBMono';
-  src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-html {
-  font-family: 'JBMono', monospace; /* Monospace je dobrá záloha pro dev web */
-}
-	/* 1. Vynulujeme okraje prohlížeče */
-	html, body {
-		margin: 0;
-		padding: 0;
-		background-color: #13151a; /* Nastavíme stejnou barvu jako má main */
-		overflow: hidden; /* Zamezí nechtěnému skrolování */
-	}
-
-	/* 2. Zajistíme, aby main zabral opravdu všechno */
-	main {
-		margin: 0;
-		width: 100vw;
-		height: 100vh;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		background-color: #13151a;
-		color: white;
-		text-align: center;
-	}
-
-	img{
-		border-radius: 12px;
-	}
-
-	.small-image{
-		max-height: 200px;
-	}
+  }
 </style>
