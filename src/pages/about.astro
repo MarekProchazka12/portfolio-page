@@ -4,8 +4,14 @@ import Layout from '../layouts/Page.astro';
 import { Image } from 'astro:assets';
 import pic1 from '../assets/other/IMG_5268.jpg';
 import pic2 from '../assets/other/oprava.jpg';
+import BaseHead from '../components/BaseHead.astro';
+
 ---
 
+
+<head>
+		<BaseHead title={"About me!"} description={"Learn more about me"} />
+	</head>
 <Layout
 	title="About Me"
 	description="Lorem ipsum dolor sit amet"
