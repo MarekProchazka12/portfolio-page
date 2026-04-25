@@ -2,7 +2,7 @@
 title: '[VE] Márovo cestopis'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Apr 25 2026'
-heroImage: '../../assets/projects/mc/IMG_2529.jpg'
+heroImage: '../../assets/projects/mc/mc.jpg'
 ---
 
 Márovo cestopis has been a long term project of mine. It's an Instagram page where I edit my experiences (mostly travels) into a short-form videos.
