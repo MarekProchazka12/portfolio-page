@@ -8,8 +8,8 @@
 	--color-bg: #2e2f2e;
    --color-primary: #f0faf8;       
    --color-text:"black";
-   --color-secondary: #9ed5e6;
-	 --color-cover: #013747
+   --color-secondary: #0d2a69;
+	 --color-cover: #e2dd39;
   }
 @font-face {
 	font-family: "Atkinson";
@@ -91,10 +91,10 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--color-secondary);
+	color: var(--color-primary);
 }
 a:hover {
-	color: var(--color-secondary);
+	color: var(--color-cover);
 }
 p {
 	margin-bottom: 1em;
@@ -123,7 +123,7 @@ img {
 }
 code {
 	padding: 2px 5px;
-	background-color: var(--color-cover);
+	background-color: var(--color-secondary);
 	border-radius: 2px;
 }
 pre {
@@ -159,12 +159,26 @@ hr {
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
 	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
 	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg, #000000);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5); 
+  border-radius: 5px;
+  border: 2px solid var(--color-bg, #000000); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary, #2411fc); 
 }
