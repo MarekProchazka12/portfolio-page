@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Page.astro';
 import TimelineItem from '../components/TimelineItem.astro';
+import BaseHead from '../components/BaseHead.astro';
+
 
 const experiences = [
   {
@@ -41,10 +43,14 @@ const experiences = [
   }
 ];
 ---
+<head>
+		<BaseHead title={"My path"} description={"This is my path"} />
+	</head>
 
 <Layout 
   description='Ahoj'
 >
+
   <section class="path-container">
     
     <header class="path-header">
